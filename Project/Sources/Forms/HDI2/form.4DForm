@@ -1,0 +1,815 @@
+﻿{
+	"destination": "detailScreen",
+	"windowMinWidth": 800,
+	"windowMaxWidth": 32000,
+	"windowMinHeight": 540,
+	"windowMaxHeight": 32000,
+	"width": 1100,
+	"height": 900,
+	"menuBar": "Menu Bar #1",
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onUnload",
+		"onPageChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "842pt",
+		"paperHeight": "595pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"Tab Control": {
+					"type": "tab",
+					"top": 20,
+					"left": 20,
+					"width": 1060,
+					"height": 860,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "_TabTitles",
+					"dataSourceTypeHint": "arrayText",
+					"action": "gotoPage",
+					"events": [
+						"onClick"
+					]
+				},
+				"TraceCheckbox": {
+					"type": "checkbox",
+					"text": "Trace",
+					"top": 850,
+					"left": 30,
+					"width": 80,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"dataSource": "btnTrace",
+					"sizingX": "fixed",
+					"sizingY": "fixed"
+				}
+			}
+		},
+		{
+			"objects": {
+				"information": {
+					"type": "input",
+					"top": 80,
+					"left": 70,
+					"width": 900,
+					"height": 350,
+					"sizingX": "fixed",
+					"sizingY": "fixed",
+					"dataSource": "_Descriptions{1}",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"styledText": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Static Picture1": {
+					"type": "picture",
+					"top": 459,
+					"left": 350,
+					"width": 403,
+					"height": 191,
+					"picture": "Images/Static Picture1.tif",
+					"pictureFormat": "scaled"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Text18": {
+					"type": "text",
+					"text": "Name:",
+					"top": 680,
+					"left": 508,
+					"width": 100,
+					"height": 20,
+					"textAlign": "right"
+				},
+				"Input14": {
+					"type": "input",
+					"left": 120,
+					"top": 710,
+					"width": 250,
+					"height": 17,
+					"enterable": false,
+					"hideFocusRing": false,
+					"fill": "transparent",
+					"dataSource": "_TabLineCode{5}",
+					"styledText": true,
+					"borderStyle": "none",
+					"focusable": false
+				},
+				"Text11": {
+					"type": "text",
+					"text": "Price:",
+					"top": 680,
+					"left": 220,
+					"width": 100,
+					"height": 20,
+					"textAlign": "right"
+				},
+				"information4": {
+					"type": "input",
+					"top": 80,
+					"left": 70,
+					"width": 1000,
+					"height": 260,
+					"sizingX": "fixed",
+					"sizingY": "fixed",
+					"dataSource": "_Descriptions{2}",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"styledText": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"LBProducts": {
+					"type": "listbox",
+					"left": 70,
+					"top": 480,
+					"width": 345,
+					"height": 141,
+					"events": [
+						"onLoad",
+						"onUnload",
+						"onSelectionChange"
+					],
+					"selectionMode": "single",
+					"listboxType": "collection",
+					"dataSource": "Form:C1466.products",
+					"focusable": false,
+					"rowHeight": "20px",
+					"headerHeight": "21px",
+					"scrollbarHorizontal": "hidden",
+					"hideSystemHighlight": false,
+					"currentItemSource": "Form:C1466.selectedProduct",
+					"method": "ObjectMethods/LBProducts.4dm",
+					"columns": [
+						{
+							"header": {
+								"text": "Name",
+								"name": "Header18"
+							},
+							"name": "Column18",
+							"footer": {
+								"name": "Footer18"
+							},
+							"dataSource": "This:C1470.name",
+							"width": 150
+						},
+						{
+							"header": {
+								"name": "Header19",
+								"text": "Price"
+							},
+							"name": "Column19",
+							"dataSource": "This:C1470.price",
+							"footer": {
+								"name": "Footer19"
+							},
+							"width": 100,
+							"textAlign": "center"
+						},
+						{
+							"header": {
+								"name": "Header1",
+								"text": "New"
+							},
+							"name": "Column1",
+							"dataSource": "This:C1470.isNew",
+							"dataSourceTypeHint": "boolean",
+							"enterable": false,
+							"footer": {
+								"name": "Footer1"
+							},
+							"textAlign": "center",
+							"width": 80
+						}
+					]
+				},
+				"Input16": {
+					"type": "input",
+					"left": 120,
+					"top": 680,
+					"width": 150,
+					"height": 20,
+					"dataSource": "Form:C1466.product.name"
+				},
+				"Input17": {
+					"type": "input",
+					"left": 330,
+					"top": 680,
+					"width": 70,
+					"height": 20,
+					"dataSource": "Form:C1466.product.price",
+					"dataSourceTypeHint": "number"
+				},
+				"Button6": {
+					"type": "button",
+					"text": "Add",
+					"top": 680,
+					"left": 420,
+					"width": 80,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button6.4dm",
+					"focusable": false
+				},
+				"Text12": {
+					"type": "text",
+					"text": "PRODUCTS entity selection",
+					"top": 350,
+					"left": 70,
+					"width": 300,
+					"height": 20,
+					"fontWeight": "bold",
+					"textAlign": "left",
+					"stroke": "#696969",
+					"fontSize": 18
+				},
+				"Text13": {
+					"type": "text",
+					"text": "Enter product information",
+					"top": 650,
+					"left": 70,
+					"width": 220,
+					"height": 20,
+					"fontWeight": "bold"
+				},
+				"Text14": {
+					"type": "text",
+					"text": "Name:",
+					"top": 680,
+					"left": 10,
+					"width": 100,
+					"height": 20,
+					"textAlign": "right"
+				},
+				"Input18": {
+					"type": "input",
+					"left": 70,
+					"top": 770,
+					"width": 200,
+					"height": 20,
+					"dataSource": "Form:C1466.name",
+					"events": [
+						"onClick",
+						"onAfterKeystroke"
+					],
+					"method": "ObjectMethods/Input18.4dm",
+					"fontStyle": "italic",
+					"stroke": "#696969",
+					"fontWeight": "bold"
+				},
+				"Text15": {
+					"type": "text",
+					"text": "Find by name:",
+					"top": 750,
+					"left": 70,
+					"width": 100,
+					"height": 20,
+					"textAlign": "left"
+				},
+				"LBParts": {
+					"type": "listbox",
+					"left": 570,
+					"top": 480,
+					"width": 265,
+					"height": 141,
+					"events": [
+						"onLoad",
+						"onUnload"
+					],
+					"selectionMode": "none",
+					"listboxType": "collection",
+					"dataSource": "Form:C1466.selectedProduct.parts",
+					"focusable": false,
+					"rowHeight": "20px",
+					"headerHeight": "21px",
+					"scrollbarHorizontal": "hidden",
+					"hideSystemHighlight": false,
+					"currentItemSource": "",
+					"columns": [
+						{
+							"header": {
+								"text": "Name",
+								"name": "Header20"
+							},
+							"name": "Column20",
+							"footer": {
+								"name": "Footer20"
+							},
+							"dataSource": "This:C1470.name",
+							"width": 150,
+							"enterable": false
+						},
+						{
+							"header": {
+								"name": "Header21",
+								"text": "Price"
+							},
+							"name": "Column21",
+							"dataSource": "This:C1470.price",
+							"footer": {
+								"name": "Footer21"
+							},
+							"dataSourceTypeHint": "number",
+							"enterable": false,
+							"width": 100,
+							"textAlign": "center"
+						}
+					]
+				},
+				"Input21": {
+					"type": "input",
+					"left": 620,
+					"top": 680,
+					"width": 150,
+					"height": 20,
+					"dataSource": "Form:C1466.part.name"
+				},
+				"AddPartButton": {
+					"type": "button",
+					"text": "Add",
+					"top": 680,
+					"left": 790,
+					"width": 80,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/AddPartButton.4dm",
+					"focusable": false
+				},
+				"Text17": {
+					"type": "text",
+					"text": "Enter part information",
+					"top": 650,
+					"left": 570,
+					"width": 220,
+					"height": 20,
+					"fontWeight": "bold"
+				},
+				"Input": {
+					"type": "input",
+					"left": 210,
+					"top": 380,
+					"width": 100,
+					"height": 20,
+					"enterable": false,
+					"focusable": false,
+					"dataSource": "Choose:C955(Form:C1466.products.isAlterable(); \"Yes\"; \"No\")",
+					"borderStyle": "none",
+					"fill": "transparent",
+					"fontWeight": "bold",
+					"fontStyle": "normal",
+					"stroke": "#6495ed",
+					"textAlign": "left",
+					"fontSize": 18
+				},
+				"PartsNatureValue": {
+					"type": "input",
+					"left": 710,
+					"top": 380,
+					"width": 100,
+					"height": 20,
+					"enterable": false,
+					"focusable": false,
+					"dataSource": "Choose:C955(Form:C1466.selectedProduct.parts.isAlterable(); \"Yes\"; \"No\")",
+					"borderStyle": "none",
+					"fill": "transparent",
+					"fontWeight": "bold",
+					"fontStyle": "normal",
+					"stroke": "#6495ed",
+					"textAlign": "left",
+					"fontSize": 18
+				},
+				"Text3": {
+					"type": "text",
+					"text": "PARTS entity selection",
+					"top": 350,
+					"left": 570,
+					"width": 300,
+					"height": 20,
+					"fontWeight": "bold",
+					"textAlign": "left",
+					"stroke": "#696969",
+					"fontSize": 18,
+					"fontStyle": "normal"
+				},
+				"Input1": {
+					"type": "input",
+					"left": 250,
+					"top": 650,
+					"width": 250,
+					"height": 20,
+					"enterable": false,
+					"hideFocusRing": false,
+					"fill": "transparent",
+					"dataSource": "_TabLineCode{1}",
+					"styledText": true,
+					"borderStyle": "none",
+					"focusable": false,
+					"textAlign": "left"
+				},
+				"Input2": {
+					"type": "input",
+					"left": 70,
+					"top": 450,
+					"width": 400,
+					"height": 30,
+					"enterable": false,
+					"hideFocusRing": false,
+					"fill": "transparent",
+					"dataSource": "_TabLineCode{2}",
+					"styledText": true,
+					"borderStyle": "none",
+					"focusable": false
+				},
+				"Input3": {
+					"type": "input",
+					"left": 570,
+					"top": 460,
+					"width": 300,
+					"height": 20,
+					"enterable": false,
+					"hideFocusRing": false,
+					"fill": "transparent",
+					"dataSource": "_TabLineCode{3}",
+					"styledText": true,
+					"borderStyle": "none",
+					"focusable": false
+				},
+				"Input5": {
+					"type": "input",
+					"left": 70,
+					"top": 800,
+					"width": 450,
+					"height": 30,
+					"enterable": false,
+					"hideFocusRing": false,
+					"fill": "transparent",
+					"dataSource": "_TabLineCode{4}",
+					"styledText": true,
+					"borderStyle": "none",
+					"focusable": false
+				},
+				"Input7": {
+					"type": "input",
+					"left": 620,
+					"top": 710,
+					"width": 320,
+					"height": 17,
+					"enterable": false,
+					"hideFocusRing": false,
+					"fill": "transparent",
+					"dataSource": "_TabLineCode{7}",
+					"styledText": true,
+					"borderStyle": "none",
+					"focusable": false
+				},
+				"Input8": {
+					"type": "input",
+					"left": 270,
+					"top": 380,
+					"width": 250,
+					"height": 20,
+					"enterable": false,
+					"hideFocusRing": false,
+					"fill": "transparent",
+					"dataSource": "_TabLineCode{8}",
+					"styledText": true,
+					"borderStyle": "none",
+					"focusable": false
+				},
+				"PartsNatureCode": {
+					"type": "input",
+					"left": 770,
+					"top": 380,
+					"width": 300,
+					"height": 20,
+					"enterable": false,
+					"hideFocusRing": false,
+					"fill": "transparent",
+					"dataSource": "_TabLineCode{9}",
+					"styledText": true,
+					"borderStyle": "none",
+					"focusable": false,
+					"textAlign": "left"
+				},
+				"Input4": {
+					"type": "input",
+					"left": 720,
+					"top": 650,
+					"width": 200,
+					"height": 20,
+					"enterable": false,
+					"hideFocusRing": false,
+					"fill": "transparent",
+					"dataSource": "_TabLineCode{6}",
+					"styledText": true,
+					"borderStyle": "none",
+					"focusable": false,
+					"textAlign": "left"
+				},
+				"Text1": {
+					"type": "text",
+					"text": "Is it alterable ?",
+					"top": 380,
+					"left": 70,
+					"width": 150,
+					"height": 20,
+					"fontWeight": "bold",
+					"textAlign": "left",
+					"stroke": "#696969",
+					"fontSize": 18
+				},
+				"Text2": {
+					"type": "text",
+					"text": "Is it alterable ?",
+					"top": 380,
+					"left": 570,
+					"width": 150,
+					"height": 20,
+					"fontWeight": "bold",
+					"textAlign": "left",
+					"stroke": "#696969",
+					"fontSize": 18
+				}
+			},
+			"entryOrder": [
+				"Input1",
+				"Input4",
+				"Input14",
+				"information4",
+				"Input16",
+				"Input17",
+				"Button6",
+				"Input18",
+				"Input21",
+				"AddPartButton",
+				"Input",
+				"PartsNatureValue",
+				"Input2",
+				"Input3",
+				"Input5",
+				"Input7",
+				"Input8",
+				"PartsNatureCode"
+			]
+		},
+		{
+			"objects": {
+				"Input6": {
+					"type": "input",
+					"left": 470,
+					"top": 370,
+					"width": 500,
+					"height": 20,
+					"enterable": false,
+					"focusable": false,
+					"dataSource": "Form:C1466.message",
+					"fill": "transparent",
+					"borderStyle": "none",
+					"textAlign": "left",
+					"fontStyle": "italic",
+					"stroke": "#6495ed",
+					"fontWeight": "bold",
+					"fontSize": 18
+				},
+				"GeneratedCatalogContent": {
+					"type": "listbox",
+					"left": 70,
+					"top": 400,
+					"width": 395,
+					"height": 141,
+					"events": [
+						"onLoad",
+						"onUnload",
+						"onSelectionChange"
+					],
+					"selectionMode": "none",
+					"listboxType": "collection",
+					"dataSource": "Form:C1466.catalog",
+					"focusable": false,
+					"rowHeight": "20px",
+					"headerHeight": "21px",
+					"scrollbarHorizontal": "hidden",
+					"hideSystemHighlight": false,
+					"currentItemSource": "",
+					"columns": [
+						{
+							"header": {
+								"text": "Name",
+								"name": "Header2"
+							},
+							"name": "Column2",
+							"footer": {
+								"name": "Footer2"
+							},
+							"dataSource": "This:C1470.name",
+							"width": 200
+						},
+						{
+							"header": {
+								"name": "Header3",
+								"text": "Price"
+							},
+							"name": "Column3",
+							"dataSource": "This:C1470.price",
+							"footer": {
+								"name": "Footer3"
+							},
+							"width": 100,
+							"textAlign": "center",
+							"enterable": false
+						},
+						{
+							"header": {
+								"name": "Header4",
+								"text": "New"
+							},
+							"name": "Column4",
+							"dataSource": "This:C1470.isNew",
+							"dataSourceTypeHint": "boolean",
+							"enterable": false,
+							"footer": {
+								"name": "Footer4"
+							},
+							"textAlign": "center",
+							"width": 80
+						}
+					]
+				},
+				"GeneratedCatalogTitle": {
+					"type": "text",
+					"text": "The catalog has been generated for the products below:",
+					"top": 370,
+					"left": 70,
+					"width": 400,
+					"height": 20,
+					"fontWeight": "bold",
+					"fontSize": 14,
+					"stroke": "#696969",
+					"textAlign": "left"
+				},
+				"SendCatalogButton2": {
+					"type": "button",
+					"text": "All products",
+					"top": 290,
+					"left": 360,
+					"width": 120,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/SendCatalogButton2.4dm",
+					"focusable": false
+				},
+				"SendCatalogButton3": {
+					"type": "button",
+					"text": "New products",
+					"top": 290,
+					"left": 620,
+					"width": 120,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/SendCatalogButton3.4dm",
+					"focusable": false
+				},
+				"Input9": {
+					"type": "input",
+					"left": 70,
+					"top": 570,
+					"width": 600,
+					"height": 260,
+					"enterable": false,
+					"hideFocusRing": false,
+					"fill": "transparent",
+					"dataSource": "_TabLineCode{10}",
+					"styledText": true,
+					"borderStyle": "dotted",
+					"focusable": false,
+					"textAlign": "left"
+				},
+				"GeneratedCatalogExpression": {
+					"type": "input",
+					"left": 480,
+					"top": 520,
+					"width": 150,
+					"height": 20,
+					"enterable": false,
+					"hideFocusRing": false,
+					"fill": "transparent",
+					"dataSource": "_TabLineCode{11}",
+					"styledText": true,
+					"borderStyle": "none",
+					"focusable": false,
+					"textAlign": "left"
+				},
+				"Input10": {
+					"type": "input",
+					"left": 360,
+					"top": 320,
+					"width": 250,
+					"height": 20,
+					"enterable": false,
+					"hideFocusRing": false,
+					"fill": "transparent",
+					"dataSource": "_TabLineCode{12}",
+					"styledText": true,
+					"borderStyle": "none",
+					"focusable": false,
+					"textAlign": "left"
+				},
+				"Input11": {
+					"type": "input",
+					"left": 620,
+					"top": 320,
+					"width": 400,
+					"height": 20,
+					"enterable": false,
+					"hideFocusRing": false,
+					"fill": "transparent",
+					"dataSource": "_TabLineCode{13}",
+					"styledText": true,
+					"borderStyle": "none",
+					"focusable": false,
+					"textAlign": "left"
+				},
+				"Text": {
+					"type": "text",
+					"text": "Generate catalog for:",
+					"top": 290,
+					"left": 70,
+					"width": 200,
+					"height": 20,
+					"textAlign": "left",
+					"fontWeight": "bold",
+					"stroke": "#696969",
+					"fontSize": 18
+				},
+				"information1": {
+					"type": "input",
+					"top": 80,
+					"left": 70,
+					"width": 1000,
+					"height": 160,
+					"sizingX": "fixed",
+					"sizingY": "fixed",
+					"dataSource": "_Descriptions{3}",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"styledText": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				}
+			}
+		}
+	],
+	"geometryStamp": 4672,
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	},
+	"windowSizingX": "fixed"
+}
